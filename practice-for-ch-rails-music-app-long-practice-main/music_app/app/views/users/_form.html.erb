@@ -1,0 +1,28 @@
+<%if action == :new%>
+    <%action_url = users_url%>
+    <%button_text = "Create User" %>
+<%else%>
+    <%action_url = user_url(user)%>
+    <%button_text = "Update User"%>
+<%end%>
+
+
+<div>
+    <form action="<%action_url%>" method ="POST">
+        <input type="hidden" name="_method" value="PATCH">
+
+    <label>email
+        <input type="text" name="user[email]" value=<%= user.email%>>
+    </label>
+
+    </br>
+
+    <label>password
+        <input type="password" name="user[password]" value=<%= user.password%>>
+    </label>
+
+    </form>
+
+    <input type="submit" value="<%=button_text%>">
+
+</div>
